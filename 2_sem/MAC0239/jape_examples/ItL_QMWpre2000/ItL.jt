@@ -1,0 +1,15 @@
+﻿/* $Id: ItL.jt,v 1.14 2007/09/11 16:49:51 rbornat Exp $ */
+
+INITIALISE applyconjectures none
+INITIALISE tryresolution false
+INITIALISE displaystyle box
+
+USE "ItL_syntax.j"
+USE "ItL_rules.j"
+USE "ItL_menus.j"
+USE "ItL_problems.j"
+
+INITIALISE outerassumptionword premise
+INITIALISE outerassumptionplural premises
+INITIALISE innerassumptionword assumption
+INITIALISE innerassumptionplural assumptions

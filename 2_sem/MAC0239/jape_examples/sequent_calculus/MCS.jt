@@ -1,0 +1,15 @@
+﻿/* $Id: MCS.jt,v 1.9 2007/09/11 16:49:57 rbornat Exp $ */
+
+INITIALISE applyconjectures none
+INITIALISE tryresolution false
+INITIALISE displaystyle tree
+
+USE "sequent_syntax.j"
+USE "MCS_rules.j"
+
+CONJECTUREPANEL "Conjectures"
+  THEOREM   modusponens IS A, A→B ⊢ B
+  THEOREM   contradiction   IS A, ¬A ⊢ 
+END
+
+USE "sequent_problems.j"

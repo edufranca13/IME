@@ -1,0 +1,92 @@
+## MAC0121 - ALgoritmo e Estrutura de Dados I ##
+### EP3 ###
+##### Eduardo Hashimoto nº USP 6514136
+
+### Perguntas do enunciado do problema
+
+• é possível ordenar um vetor de qualquer tamanho com rotações?
+
+• dado um vetor de tamanho n é possível ordenar qualquer instância com 3-rotações?
+
+• qual o número máximo de 3-rotações que seu algoritmo executa para ordenar um vetor?
+
+Vetores pares que tenham um número em um índice par (ou impar) que deveriam estar em um índice impar (ou par) não são possíveis de ordenar.
+Por exemplo:
+0213
+só permite as seguintes permutações:
+1203
+1302
+0312.
+As demais permutações (1023, 1032, 2013, 2031, 3012, 3021, 1320, 3120, 0123, etc) não são alcançadas pois 0 não pode estar nos índices 1 e 3, nem 2 nos índices 0 e 2, nem 1 nos índices 1 e 3, nem 3 nos índices 0 e 2.
+
+Se o vetor for impar qualquer instância é ordenável. É possível trocar dois números sem interferir nos demais, como se estivesse fazendo uma troca entre os dois apenas.
+
+### Idéia do algoritmo
+
+Em linhas gerais, o algoritmo executa os seguintes passos:
+- identifica se o número no vetor tem a mesma paridade de onde ele deveria estar (comparando a um vetor ordenado);
+- troca o número de paridade errada com outro também de paridade errada (se um estiver na sua posição errada, então outro também está)
+- usa bubble sort para organizar os índices impares;
+- usa buble sort para organizar os índices pares.
+
+Então o vetor estará organizado.
+
+###Funções
+
+createTuple: cria uma tupla (que contem valores e índices, os quais serão úteis para verificar a paridade dos números) a partir de um vetor de inteiros.
+
+printv: imprime a tupla relacionado o índice da posição original com o valor. Usado para debugar.
+
+binarysearchfo: retorna a primeira ocorrência de um número em um vetor de tuplas. Possui complexidade log(n).
+
+mergesort e merge: organiza o vetor de inteiros, conforme visto em aula.
+
+makeTable: cria uma tabela que correlaciona o índice original da tupla com o índice onde aquela tupla deveria estar, baseado em um vetor já organizado. Precisa de melhorias.
+
+checkParity: compara a paridade do índice e do índice onde ele deveria estar. 
+
+moveback: subtrai 2 de um inteiro e compensa por ser um vetor circular, caso necessário.
+
+swap: função que exclusivamente faz as trocas no vetor. A impressão das trocas deve ser colocada nessa função.
+
+sort: buble sort modificado que organiza primeiros os indices impares e depois os indices pares.
+
+trSort: função que a partir do vetor de inteiros e seu tamanho realiza todas as operações necessárias para retornar o vetor organizado, valendo-se apenas do movimento descrito no enunciado.   
+
+### Análise da complexidade
+
+Como o algoritmo apresenta um loop externo que percorre todos os números do vetor, então é claro que tem-se pelo menos O(n). 
+
+Para cada número pode ocorrer do algoritmo ter que percorrer todo o vetor (de 2 em 2) até encontrar um par para fazer a troca.
+
+Em seguida terá que fazer as possíveis (aproximadamente) n/2 trocas e novamente as n/2 trocas para colocar o número o outro número no local do original.
+
+Isso deve levar a O(n*(n/2+n/2+n/2)) ~ O(n²). Ao final é executado sobre o vetor dois buble sort, conforme dito, o que também possui complexidade O(n²) nos piores casos.
+
+Portanto, o algoritmo total é O(n²).
+
+A operação auxiliar maketable também tem complexidade alta de O(n²).
+
+Devido a alta complexidade do algoritmo, o número máximo de números que o programa consegui executar foi de 1000.
+
+### Melhorias
+
+Inúmeras melhorias poderiam ser feitas no programa caso houvesse mais tempo hábil, entre elas:
+
+- maketable poderia ser muito mais eficiente usando uma busca binária para identificar os índices que já foram adicionados.
+
+- a identificação do par de troca mais próximo com a paridade diferente da sua e diferente de zero não precisaria ser uma busca linear, pois já tabelamos todos os números com paridades erradas. Assim, poderíamos tabelar apenas os números nas posições erradas e fazer acessos imediatos ao próximo par de troca potencial. Isso evitaria percorrer o vetor em busca do próximo par de troca.
+
+- a movimentação de troca que se sucede após conhecer o par de troca mais próximo também pode ser melhorada se ao invés da próxima troca ser sempre pra frente, ela fosse no sentido mais próxima do par de troca. Obviamente o par de troca viria ao número analisado no sentido contrário, diminuindo ainda mais os movimentos realizados.
+
+Estou certo que feita as melhorias/modificações no programa, sua eficiência melhoraria muito.
+
+
+
+
+
+
+
+
+
+

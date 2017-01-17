@@ -1,0 +1,7 @@
+﻿/* $Id: BnE-Fprime.jt,v 1.6 2004/04/05 21:27:13 richard Exp $ */
+
+INITIALISE interpretpredicates true
+
+USE "BnE-Fprime_syntax.j"
+USE "BnE-Fprime_rules.j"
+USE "BnE-Fprime_menus.j"

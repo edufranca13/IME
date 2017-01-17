@@ -1,0 +1,9 @@
+﻿/* $Id: BAN_ASCII.jt,v 1.4 2004/04/05 21:27:12 richard Exp $ */
+
+USE "BAN_ASCII_syntax.j"
+USE "BAN_ASCII_rules.j"
+USE "BAN_ASCII_menus.j"
+USE "BAN_ASCII_problems.j"
+
+INITIALISE displaystyle box
+INITIALISE outermostbox false

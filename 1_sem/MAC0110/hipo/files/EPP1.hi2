@@ -1,0 +1,18 @@
+100;5
+0;+1198;Load 98 into Acc.
+1;+1225;Store [Acc] into 25.
+2;+3115;Assign input to 15.
+3;+3120;Assign input to 20.
+4;+1120;Load 20 into Acc.
+5;+5514;If [Acc] = 0, jump to 14.
+6;+1115;Load 15 into Acc.
+7;+2520;Assign rest of [Acc] / [20] to Acc.
+8;+1225;Store [Acc] into 25.
+9;+1120;Load 20 into Acc.
+10;+1215;Store [Acc] into 15.
+11;+1125;Load 25 into Acc.
+12;+1220;Store [Acc] into 20.
+13;+5104;Jump to 04.
+14;+4115;Print [15].
+15;+7000;Stop the execution.
+98;+0000;

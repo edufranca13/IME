@@ -1,0 +1,9 @@
+﻿/*
+    Functions and lists played transitively
+    Needs Jape 4.1
+    $Id: trfunctions.jt,v 1.4 2004/05/27 09:43:12 richard Exp $
+    
+*/
+
+USE "functions.jt"
+USE "functions_transitivity.j"
