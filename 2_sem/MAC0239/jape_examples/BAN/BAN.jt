@@ -1,9 +1,0 @@
-﻿/* $Id: BAN.jt,v 1.7 2004/04/05 21:27:11 richard Exp $ */
-
-USE "BAN_syntax.j"
-USE "BAN_rules.j"
-USE "BAN_menus.j"
-USE "BAN_problems.j"
-
-INITIALISE displaystyle box
-INITIALISE outermostbox false
