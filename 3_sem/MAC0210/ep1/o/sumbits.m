@@ -1,0 +1,1 @@
+function sumb = sumbits(x)  sumb = x;endfunctiona = sumbits(3);

@@ -1,0 +1,1 @@
+dec2bin(typecast(single(240), 'uint8'))

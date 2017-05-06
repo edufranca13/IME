@@ -1,0 +1,1 @@
+clear allclose allclca = 0.42 + 0.50 + 0.08;b = 0.08 + 0.42 - 0.50;disp ("a soma a é: "), disp (a);disp ("a soma b é: "), disp (b);a = [1 2 3 4 5];
