@@ -1,1 +1,0 @@
-vetor *insereOrdenadoV(vetor *p, char *c);

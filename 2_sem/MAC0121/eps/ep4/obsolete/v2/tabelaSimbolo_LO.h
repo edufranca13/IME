@@ -1,1 +1,0 @@
-apontador insereOrdenadoL(apontador inicio, char *c);
