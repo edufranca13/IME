@@ -1,0 +1,40 @@
+MAC0121 - Algoritmo e Estruturas de Dados I
+EP5
+Nome: Eduardo Tsuyoshi França Hashimoto
+nUSP: 6514136
+
+Introdução
+
+O programa hex.c tem a finalidade de jogar uma partida de hex entre o “outro programa” (entrada padrão) e uma estratégia elaborada por mim.
+
+Estrutura
+
+A estrutura do programa está no main, onde consecutivamente, até encontrar um vencedor, se solicita por uma entrada do outro programa que, caso válida, é armazenada em uma matriz de chars, que representa o tabuleiro.
+
+A estratégia em seguida (ou antes, dependendo da cor escolhida pelo outro programa) coloca outra peça no tabuleiro.
+
+A verificação para ver se há vencedor é feita a cada jogada. No entanto, apenas a estratégia é verificada, pois espera-se que o outro programa verifique se ele ganhou.
+
+Funções importantes
+
+As funções mais importantes do programa podem ser dividas em dois blocos:
+1) aplica a estratégia;
+2) verifica se há vencedor;
+
+Em relação a primeira, minha estratégia é tentar criar uma linha de um lado ao outro do tabuleiro. No entanto, se encontrar um obstáculo, ela passa por cima. Claramente, não foi dedicado muito tempo à estratégia e essa é deficiente.
+
+Para verificar se há vencedor fez-se o seguinte algoritmo:
+1) checa na borda se há uma peça (começando por 0);
+2) verifica se essa peça possui vizinhos;
+3) se sim, armazena (em uma fila) esses vizinhos e marca uma matriz auxiliar para evitar recair sobre uma peça já visitada;
+4) repete o processo até que haja um vizinho na borda oposta (e então a estratégia venceu);
+5) se não encontrar caminho, tenta verificar a próxima peça na borda inicial.
+
+Conclusões
+
+- A estratégia precisa ser melhorada através do estudo do jogo;
+- O programa tem várias redundâncias para poder considerar as duas cores do jogo. Isso pode ser melhorado;
+- O programa libera a memória após a criação de cada estrutura auxiliar;
+- O programa está rodando com as flags especificadas. 
+
+
