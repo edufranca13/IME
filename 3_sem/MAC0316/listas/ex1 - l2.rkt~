@@ -3,7 +3,8 @@
 (define-type ArithC
   [numC (n : number)]
   [plusC (l : ArithC) (r : ArithC)]
-  [multC (l : ArithC) (r : ArithC)])
+  [multC (l : ArithC) (r : ArithC)]
+  [divC (p : ArithC) (q : ArithC)])
 
 (define (parse [s : s-expression]) : ArithC
   (cond
@@ -13,11 +14,12 @@
        (case (s-exp->symbol (first sl))
          [(+) (plusC (parse (second sl)) (parse (third sl)))]
          [(*) (multC (parse (second sl)) (parse (third sl)))]
+         [(/) (divC (parse (second sl)) (parse (third sl)))]
          [else (error 'parse "invalid list input")]))]
     [else (error 'parse "invalid input")]))
 
 
-#|
+#| Aqui falta colocar o interp na frente dos argumentos
 (define (interp [a : ArithC]) : number
   (type-case ArithC a
     [numC (n) n]
@@ -29,10 +31,12 @@
   (type-case ArithC a
     [numC (n) n]
     [plusC (l r) (+ (interp l) (interp r))]
-    [multC (l r) (* (interp l) (interp r))]))
+    [multC (l r) (* (interp l) (interp r))]
+    [divC (p q) (/ (interp p) (interp q))]))
 
 (parse '(+ (* 1 2) (+ 2 3)))
 
 (interp (parse  '(+ (* 1 2) (+ 2 3)))) 
-(test (interp (parse  '(* (+ 1 2) (+ 6 8)))) 43)  ; errado!
+(test (interp (parse  '(* (+ 1 2) (+ 6 8)))) 43)  ; errado,  pois 3*14 = 42!
 (test (interp (parse  '(+ (* (* 12 12) 12) 1))) (+ (* 9 (* 9 9 )) (* 10 ( * 10 10)))) ; v. Ramanujan
+(interp (parse '(/ 4 0)))
